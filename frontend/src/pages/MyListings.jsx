@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '../api/axios'
 import MyListingCard from '../components/MyListingCard/MyListingCard'; // Use the new card
 import { useAuth } from '../context/AuthContext';
 
@@ -13,7 +13,7 @@ export default function MyListings() {
     if (!authUser) return;
     const fetchUserListings = async () => {
       try {
-        const response = await axios.get('/api/v1/listings/my-listings');
+        const response = await apiClient.get('/api/v1/listings/my-listings');
         setListings(response.data.data);
       } catch (err) {
         setError('Failed to load your listings.');
@@ -32,7 +32,7 @@ export default function MyListings() {
     }
 
     try {
-      await axios.delete(`/api/v1/listings/${listingId}`);
+      await apiClient.delete(`/api/v1/listings/${listingId}`);
       // Update the UI by removing the deleted listing from the state
       setListings((prevListings) =>
         prevListings.filter((listing) => listing._id !== listingId)

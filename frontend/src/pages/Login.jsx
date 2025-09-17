@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/axios'
 import { useState } from 'react';
 import Input from '../components/Input';
 import { useAuth } from '../context/AuthContext';
@@ -16,7 +16,7 @@ export default function Login() {
     setLoading(true);
     setServerError('');
     try {
-      const response = await axios.post('/api/v1/users/login', data);
+      const response = await apiClient.post('/api/v1/users/login', data);
       
       // Set the user in the global context
       setAuthUser(response.data.data.user);

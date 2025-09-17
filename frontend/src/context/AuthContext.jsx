@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '../api/axios'
 
 export const AuthContext = createContext(null);
 
@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
         const checkUserSession = async () => {
             try {
                 // Make a request to the refresh-token endpoint
-                const response = await axios.post('/api/v1/users/refresh-token');
+                const response = await apiClient.post('/api/v1/users/refresh-token');
                 // If successful, the user has a valid session
                 setAuthUser(response.data.data.user);
             } catch (error) {

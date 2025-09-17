@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/axios'
 
 export default function EditListing() {
   const { listingId } = useParams();
@@ -14,7 +14,7 @@ export default function EditListing() {
   useEffect(() => {
     const fetchListingData = async () => {
       try {
-        const response = await axios.get(`/api/v1/listings/${listingId}`);
+        const response = await apiClient.get(`/api/v1/listings/${listingId}`);
         // 2. Pre-populate the form with the fetched data
         reset(response.data.data);
       } catch (error) {
@@ -33,7 +33,7 @@ export default function EditListing() {
     setServerError('');
     try {
       // Note: We are not handling image updates in this form for simplicity.
-      await axios.patch(`/api/v1/listings/${listingId}`, data);
+      await apiClient.patch(`/api/v1/listings/${listingId}`, data);
       navigate('/my-listings');
     } catch (err) {
       console.error('Update failed:', err);

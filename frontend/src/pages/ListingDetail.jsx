@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/axios'
 
 export default function ListingDetail() {
   // useParams hook gets the ID from the URL (e.g., /listings/:listingId)
@@ -12,7 +12,7 @@ export default function ListingDetail() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await axios.get(`/api/v1/listings/${listingId}`);
+        const response = await apiClient.get(`/api/v1/listings/${listingId}`);
         setListing(response.data.data);
       } catch (err) {
         setError('Failed to load listing.');

@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
+import apiClient from '../api/axios'
 
 export default function Header() {
   const { authUser, setAuthUser } = useAuth();
@@ -8,7 +8,7 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-      await axios.post('/api/v1/users/logout');
+      await apiClient.post('/api/v1/users/logout');
       setAuthUser(null);
       navigate('/login');
     } catch (error) {

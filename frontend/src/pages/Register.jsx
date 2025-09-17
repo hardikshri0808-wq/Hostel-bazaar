@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/axios'
 import { useState } from 'react';
 
 export default function Register() {
@@ -17,7 +17,7 @@ export default function Register() {
     setLoading(true);
     setServerError('');
     try {
-      const response = await axios.post('/api/v1/users/register', data);
+      const response = await apiClient.post('/api/v1/users/register', data);
       console.log('Registration successful:', response.data);
       // Navigate to the login page after successful registration
       navigate('/login');

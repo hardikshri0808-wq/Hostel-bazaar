@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import axios from 'axios';
-axios.defaults.withCredentials = true; 
+import apiClient from '../api/axios'
+apiClient.defaults.withCredentials = true; 
 import EditListing from './pages/EditListing.jsx';
 // Import Global State Provider
 import { AuthProvider } from './context/AuthContext.jsx';

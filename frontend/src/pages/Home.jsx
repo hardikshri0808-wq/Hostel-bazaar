@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '../api/axios'
 import ListingCard from '../components/ListingCard/ListingCard';
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
     const fetchListings = async () => {
       try {
         // Fetch data from the backend
-        const response = await axios.get('/api/v1/listings');
+        const response = await apiClient.get('/api/v1/listings');
         // The actual listings are inside the 'docs' array of the response data
         setListings(response.data.data.docs);
         setError(null);

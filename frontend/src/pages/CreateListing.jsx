@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/axios'
 import { useState } from 'react';
 
 export default function CreateListing() {
@@ -22,7 +22,7 @@ export default function CreateListing() {
     formData.append('listingImage', data.listingImage[0]); // Get the file
 
     try {
-      const response = await axios.post('/api/v1/listings/create', formData, {
+      const response = await apiClient.post('/api/v1/listings/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
