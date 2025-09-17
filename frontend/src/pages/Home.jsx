@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 import ListingCard from '../components/ListingCard/ListingCard';
 
 export default function Home() {

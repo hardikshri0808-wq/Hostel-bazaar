@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import apiClient from '../api/axios'
+import apiClient from "../../api/axios.js";
 
 export default function Header() {
   const { authUser, setAuthUser } = useAuth();

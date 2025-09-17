@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 
 export default function EditListing() {
   const { listingId } = useParams();

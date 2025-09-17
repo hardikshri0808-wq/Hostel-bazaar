@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 import MyListingCard from '../components/MyListingCard/MyListingCard'; // Use the new card
 import { useAuth } from '../context/AuthContext';
 

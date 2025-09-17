@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 
 export default function ListingDetail() {
   // useParams hook gets the ID from the URL (e.g., /listings/:listingId)

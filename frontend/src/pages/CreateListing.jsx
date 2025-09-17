@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 import { useState } from 'react';
 
 export default function CreateListing() {

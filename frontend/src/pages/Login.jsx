@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import apiClient from '../api/axios'
+import apiClient from '../api/axios.js'
 import { useState } from 'react';
 import Input from '../components/Input';
 import { useAuth } from '../context/AuthContext';
